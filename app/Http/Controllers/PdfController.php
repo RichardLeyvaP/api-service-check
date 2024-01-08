@@ -12,7 +12,7 @@ class PdfController extends Controller
 {
     public function pdf(){
 
-        $pdf = Pdf::setPaper('a4', 'landscape')->loadView('template_pdf');
+        $pdf = Pdf::setPaper('lettle', 'patriot')->loadView('template_pdf');
         $filename = 'reporte.pdf';
         return $pdf->stream($filename, array('Attachment' => 0));
         /*$html = View::make('template_pdf')->render();

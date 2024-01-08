@@ -226,8 +226,7 @@
   <tr>
     <td colspan="3"><strong>Certificado: </strong>-</td>
     <td colspan="6"><strong>Data afericao: </strong>-</td>
-  </tr>
-  
+  </tr>  
   <tr>
     <td colspan="4"><strong>Instrumento padrao:</strong> - </td>
     <td colspan="5"><strong>Modelo:</strong> - </td>
@@ -235,8 +234,7 @@
   <tr>
     <td colspan="3"><strong>Certificado: </strong>-</td>
     <td colspan="6"><strong>Data afericao: </strong>-</td>
-  </tr>
-  
+  </tr>  
   <tr>
     <td colspan="9" style="text-align: center;"><strong>Cervicos Executados </strong></td>
   </tr>

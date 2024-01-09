@@ -57,7 +57,7 @@
   </tr>
   <tr>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
-    <td width="70%" colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
+    <td width="80%" colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
   </tr>
   <tr>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
@@ -132,7 +132,7 @@
   </tr>
   <tr>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
-    <td width="70%" colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
+    <td width="80%" colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
   </tr>
   <tr>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>

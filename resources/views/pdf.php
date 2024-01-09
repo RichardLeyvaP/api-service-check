@@ -6,14 +6,14 @@
 </head>
 
 <body>
-<table width="100%" height="100%" border="1px" style="border-collapse: collapse; padding: 2px;">
-<tr height="20" style="border-collapse: collapse; background-color: darkgray">
+<table width="100%" height="100%" border="1px" style="border-collapse: collapse; padding: 2px; border: 1.5px solid black">
+<tr height="20" style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
     <td colspan="9" >
       <p><img src="" alt="aa" width="43" height="20" align="right" /></p>
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
     </td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray; border: 1px">
+  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
     <td colspan="9" style="text-align: center;"><strong>DATOS DU CLIENTES </strong></td>
   </tr>
   <tr>
@@ -52,14 +52,14 @@
   <tr>
     <td colspan="9"><strong>DATA PROX CALIBRACAO:</strong> 06/12/2022</td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray">
+  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
     <td colspan="9" style="text-align: center;"><strong>AFERICAO/CALIBRACAO</strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
     <td width="80%" colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
     <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada (kgf/cm2)</strong></td>
@@ -67,7 +67,7 @@
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
@@ -75,7 +75,7 @@
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">0</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">0,00</td>
@@ -86,7 +86,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">25</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">2,50</td>
@@ -97,7 +97,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">50</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">5,00</td>
@@ -108,7 +108,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">75</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">7,50</td>
@@ -119,7 +119,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">100</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">10,0</td>
@@ -130,11 +130,11 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
     <td width="80%" colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
     <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada (kgf/cm2)</strong></td>
@@ -142,7 +142,7 @@
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
@@ -150,7 +150,7 @@
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">100</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">10,0</td>
@@ -161,7 +161,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">75</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">7,50</td>
@@ -172,7 +172,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">50</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">5,00</td>
@@ -183,7 +183,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">25</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">2,50</td>
@@ -194,7 +194,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
     <td style="text-align: center;">0</td>
     <td style="text-align: center;">-</td>
     <td style="text-align: center;">0,00</td>
@@ -205,7 +205,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray">
+  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
     <td colspan="9" style="text-align: center;">PADROES UTILIZADOS </td>
   </tr>
   <tr>
@@ -232,7 +232,7 @@
     <td colspan="4"><strong>Certificado: </strong>-</td>
     <td colspan="5"><strong>Data afericao: </strong>-</td>
   </tr> 
-  <tr>
+  <tr style="border-collapse: collapse; border-top: 1.5px solid black">
     <td colspan="9" style="text-align: center;"><strong>Cervicos Executados </strong></td>
   </tr>
   <tr>
@@ -247,7 +247,7 @@
   <tr>
     <td colspan="9">&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
     <td colspan="6"><strong>Tecnico executante: </strong>Cledir Fernandez Salvaterra </td>
     <td colspan="3"><strong>Data:</strong> 06/12/2022 </td>
   </tr>

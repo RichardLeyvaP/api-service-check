@@ -6,15 +6,24 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
 class PdfController extends Controller
 {
     public function pdf(){
 
-        $pdf = Pdf::setPaper('letter', 'patriot')->loadView('template_pdf');
-        $filename = 'reporte.pdf';
-        return $pdf->stream($filename, array('Attachment' => 0));
+        try {
+
+            Log::info("Generar PDF");
+            $pdf = Pdf::setPaper('a4', 'patriot')->loadView('pdf');
+            $filename = 'reporte.pdf';
+            //return $pdf->stream($filename, array('Attachment' => 0));
+            return $pdf->stream($filename, array('Attachment' => 0));
+        } catch (\Throwable $th) {
+            Log::info($th);
+        return response()->json(['msg' => 'Error al generar el PDF'], 500);
+        }
         /*$html = View::make('template_pdf')->render();
 
         $options = new Options();

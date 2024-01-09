@@ -6,10 +6,10 @@
 </head>
 
 <body>
-<table width="555" height="1024" border="1px" style="border-collapse: collapse;">
-  <tr height="32" style="border-collapse: collapse; background-color: darkgray">
+<table width="100%" height="100%" border="1px" style="border-collapse: collapse; padding: 2px;">
+<tr height="20" style="border-collapse: collapse; background-color: darkgray">
     <td colspan="9" >
-      <p><img src="../Im&aacute;genes/avatar.jpg" alt="aa" width="43" height="20" align="right" /></p>
+      <p><img src="" alt="aa" width="43" height="20" align="right" /></p>
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
     </td>
   </tr>
@@ -56,20 +56,20 @@
     <td colspan="9" style="text-align: center;"><strong>AFERICAO/CALIBRACAO</strong></td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
-    <td colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
+    <td width="70%" colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
   </tr>
   <tr>
-    <td width="53" rowspan="2" style="text-align: center;"><strong>%</strong></td>
-    <td width="39" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
-    <td width="57" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
-    <td height="15" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
+    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
   </tr>
   <tr>
-    <td width="23"><strong>Instrum.</strong></td>
-    <td width="22"><strong>Padrao</strong></td>
+    <td><strong>Instrum.</strong></td>
+    <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
@@ -131,21 +131,20 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
-    <td colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
-  </tr>
-  
-  <tr>
-    <td width="53" rowspan="2" style="text-align: center;"><strong>%</strong></td>
-    <td width="39" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
-    <td width="57" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
-    <td height="15" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
+    <td width="70%" colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
   </tr>
   <tr>
-    <td width="23"><strong>Instrum.</strong></td>
-    <td width="22"><strong>Padrao</strong></td>
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
+    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
+  </tr>
+  <tr>
+    <td><strong>Instrum.</strong></td>
+    <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
@@ -210,29 +209,29 @@
     <td colspan="9" style="text-align: center;">PADROES UTILIZADOS </td>
   </tr>
   <tr>
-    <td colspan="4"><strong>Instrumento padrao:</strong> NS839055 </td>
-    <td colspan="5"><strong>Modelo:</strong> MN01 </td>
+    <td colspan="5"><strong>Instrumento padrao:</strong> NS839055 </td>
+    <td colspan="4"><strong>Modelo:</strong> MN01 </td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Certificado: </strong>PR2220043 </td>
-    <td colspan="6"><strong>Data afericao: </strong>25/11/2022 </td>
+    <td colspan="4"><strong>Certificado: </strong>PR2220043 </td>
+    <td colspan="5"><strong>Data afericao: </strong>25/11/2022 </td>
   </tr>
   <tr>
-    <td colspan="4"><strong>Instrumento padrao:</strong> - </td>
-    <td colspan="5"><strong>Modelo:</strong> - </td>
+    <td colspan="5"><strong>Instrumento padrao:</strong> - </td>
+    <td colspan="4"><strong>Modelo:</strong> - </td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Certificado: </strong>-</td>
-    <td colspan="6"><strong>Data afericao: </strong>-</td>
+    <td colspan="4"><strong>Certificado: </strong>-</td>
+    <td colspan="5"><strong>Data afericao: </strong>-</td>
   </tr>  
   <tr>
-    <td colspan="4"><strong>Instrumento padrao:</strong> - </td>
-    <td colspan="5"><strong>Modelo:</strong> - </td>
+    <td colspan="5"><strong>Instrumento padrao:</strong> - </td>
+    <td colspan="4"><strong>Modelo:</strong> - </td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Certificado: </strong>-</td>
-    <td colspan="6"><strong>Data afericao: </strong>-</td>
-  </tr>  
+    <td colspan="4"><strong>Certificado: </strong>-</td>
+    <td colspan="5"><strong>Data afericao: </strong>-</td>
+  </tr> 
   <tr>
     <td colspan="9" style="text-align: center;"><strong>Cervicos Executados </strong></td>
   </tr>

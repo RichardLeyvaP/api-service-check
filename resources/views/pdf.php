@@ -62,7 +62,7 @@
   <tr>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
-    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
+    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada (kgf/cm2)</strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
@@ -137,7 +137,7 @@
   <tr>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
     <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
-    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
+    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada (kgf/cm2)</strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
     <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>

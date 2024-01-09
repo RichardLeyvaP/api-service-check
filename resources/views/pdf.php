@@ -7,13 +7,13 @@
 
 <body>
 <table width="100%" height="100%" border="1px" style="border-collapse: collapse; padding: 2px; border: 1.5px solid black">
-<tr height="20" style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
+<tr height="20" style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="9" >
-      <p><img src="" alt="aa" width="43" height="20" align="right" /></p>
+      <p><img src=" {{ public_path('img/prueba.png')}} " alt="Logo" width="20" height="20" align="right" /></p>
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
     </td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
+  <tr style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="9" style="text-align: center;"><strong>DATOS DU CLIENTES </strong></td>
   </tr>
   <tr>
@@ -52,7 +52,7 @@
   <tr>
     <td colspan="9"><strong>DATA PROX CALIBRACAO:</strong> 06/12/2022</td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
+  <tr style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="9" style="text-align: center;"><strong>AFERICAO/CALIBRACAO</strong></td>
   </tr>
   <tr style="border-collapse: collapse; border: 1.5px solid black">
@@ -205,7 +205,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
+  <tr style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="9" style="text-align: center;">PADROES UTILIZADOS </td>
   </tr>
   <tr>
@@ -247,7 +247,7 @@
   <tr>
     <td colspan="9">&nbsp;</td>
   </tr>
-  <tr style="border-collapse: collapse; background-color: darkgray; border: 1.5px solid black">
+  <tr style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="6"><strong>Tecnico executante: </strong>Cledir Fernandez Salvaterra </td>
     <td colspan="3"><strong>Data:</strong> 06/12/2022 </td>
   </tr>

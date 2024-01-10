@@ -16,7 +16,7 @@ class PdfController extends Controller
         try {
 
             Log::info("Generar PDF");
-            $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf');
+            $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => public_path()])->setPaper('a4', 'patriot')->loadView('pdf');
             $filename = 'reporte.pdf';
             //return $pdf->stream($filename, array('Attachment' => 0));
             return $pdf->stream($filename, array('Attachment' => 0));

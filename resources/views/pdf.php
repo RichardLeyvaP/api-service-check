@@ -4,12 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title>Documento sin t&iacute;tulo</title>
 </head>
-
+<?php 
+$fullpath = storage_path('app/public/img/pdf/prueba.png');
+?>
 <body>
 <table width="100%" height="100%" border="1px" style="border-collapse: collapse; padding: 2px; border: 1.5px solid black">
 <tr height="20" style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="9" >
-      <p><img src=" {{ public_path('img/prueba.png')}} " alt="Logo" width="20" height="20" align="right" /></p>
+      <p><img 
+  
+  src="data:image/png;base64,
+  <?php echo base64_encode(file_get_contents($fullpath)); ?>"
+  alt="Logo" width="40" height="40" align="right"
+/></p>
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
     </td>
   </tr>

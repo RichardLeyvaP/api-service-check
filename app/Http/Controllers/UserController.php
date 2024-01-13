@@ -70,7 +70,7 @@ class UserController extends Controller
         }
     }
 
-    public function registert(Request $request){
+    public function register(Request $request){
         try{
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -82,7 +82,7 @@ class UserController extends Controller
             ],400);
         }
         $user = User::create([
-            'name' => $request->user,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);

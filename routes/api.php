@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -29,3 +30,4 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
 });
 
 Route::get('/pdf', [PdfController::class, 'pdf']);
+Route::get('/excel', [ExcelController::class, 'excel']);

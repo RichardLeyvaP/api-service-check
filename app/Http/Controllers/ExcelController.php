@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\Facade\Pdf;
-use Carbon\Carbon;
-use Dompdf\Dompdf;
-use Dompdf\Options;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\View;
+use Maatwebsite\Excel\Facades\Excel;
 
-class PdfController extends Controller
+class ExcelController extends Controller
 {
-    public function pdf(Request $request){
+    public function excel(Request $request){
 
         try {
             $data = $request->validate([
@@ -45,10 +42,12 @@ class PdfController extends Controller
 
             ]);
             Log::info("Generar PDF");
-            $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
-            $filename = 'reporte.pdf';
+            //$pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
+            $filename = 'reporte.xlsx';
+            $excel = View('pdf', ['data' => $data]);
+            Log::info($excel);
             //return $pdf->stream($filename, array('Attachment' => 0));
-            return $pdf->stream($filename, array('Attachment' => 0));
+            return Excel::download($excel, $filename);
         } catch (\Throwable $th) {
             Log::info($th);
         return response()->json(['msg' => $th->getMessage()], 500);

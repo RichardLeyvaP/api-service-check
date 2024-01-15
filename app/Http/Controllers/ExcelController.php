@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\reporteExport;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
 {
+    public function index(){
+        return view('export');
+    }
+
     public function excel(Request $request){
 
         try {
@@ -41,13 +47,9 @@ class ExcelController extends Controller
                 'data' => 'date'
 
             ]);
-            Log::info("Generar PDF");
-            //$pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
+            Log::info($data);
             $filename = 'reporte.xlsx';
-            $excel = View('pdf', ['data' => $data]);
-            Log::info($excel);
-            //return $pdf->stream($filename, array('Attachment' => 0));
-            return Excel::download($excel, $filename);
+            return Excel::download(new reporteExport($data), $filename);
         } catch (\Throwable $th) {
             Log::info($th);
         return response()->json(['msg' => $th->getMessage()], 500);

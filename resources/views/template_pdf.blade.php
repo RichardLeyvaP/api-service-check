@@ -9,7 +9,7 @@
 <table width="555" height="1024" border="1px" style="border-collapse: collapse;">
   <tr height="32" style="border-collapse: collapse; background-color: darkgray">
     <td colspan="9" >
-      <p><img src="../Im&aacute;genes/avatar.jpg" alt="aa" width="43" height="20" align="right" /></p>
+      <p><img src="{{ storage_path('/img/prueba.png') }}" alt="aa" width="43" height="20" align="right" /></p>
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
     </td>
   </tr>

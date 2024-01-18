@@ -16,9 +16,11 @@ class PdfController extends Controller
 
         try {
             $data = $request->validate([
+                //DADOS DO CLIENTE
                 'branchName' => 'max:100',
                 'cityState' => 'max:100',
                 'contact' => 'max:100',
+                //DADOS DO INSTRUMENTO
                 'numberRelatorie' => 'max:100',
                 'tag' => 'max:50',
                 'fabricante' => 'max:100',

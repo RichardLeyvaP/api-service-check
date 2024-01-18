@@ -31,10 +31,12 @@ class PdfController extends Controller
                 'fre' => 'max:50',
                 'dataCalibration' => 'date',
                 'dataNextCalibration' => 'date',
+                //AFERICÃO/CALIBRACÃO
                 'aplicada25' => 'numeric',
                 'aplicada50' => 'numeric',
                 'aplicada75' => 'numeric',
                 'aplicada100' => 'numeric',
+                //PATRÕES UTILIZADOS
                 'instrument_padrao' => 'max:100',
                 'certificado' => 'max:100',
                 'model' => 'max:50',

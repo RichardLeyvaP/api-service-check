@@ -49,7 +49,9 @@ class ExcelController extends Controller
             ]);
             Log::info($data);
             $filename = 'reporte.xlsx';
-            return Excel::download(new reporteExport($data), $filename);
+            //return Excel::download(new reporteExport($data), $filename);
+            return Excel::download(new reporteExport($data), 'invoices.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+
         } catch (\Throwable $th) {
             Log::info($th);
         return response()->json(['msg' => $th->getMessage()], 500);

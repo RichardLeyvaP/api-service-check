@@ -6,8 +6,8 @@
 </head>
 
 <body>
-<table width="555" height="1024" border="1px" style="border-collapse: collapse;">
-  <tr height="32" style="border-collapse: collapse; background-color: darkgray">
+<table width="100%" height="100%" style="border-collapse: collapse; border: 1.5px solid black">
+  <tr height="10%" style="border-collapse: collapse; background-color: darkgray">
     <td colspan="9" >
       <p><img src="{{ storage_path('/img/prueba.png') }}" alt="aa" width="43" height="20" align="right" /></p>
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
@@ -55,21 +55,21 @@
   <tr style="border-collapse: collapse; background-color: darkgray">
     <td colspan="9" style="text-align: center;"><strong>AFERICAO/CALIBRACAO</strong></td>
   </tr>
-  <tr>
-    <td colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
-    <td colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
+    <td width="80%" colspan="7" style="text-align: center;"><strong>Ascendente</strong></td>
   </tr>
-  <tr>
-    <td width="53" rowspan="2" style="text-align: center;"><strong>%</strong></td>
-    <td width="39" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
-    <td width="57" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
-    <td height="15" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
+    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada (kgf/cm2)</strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
   </tr>
-  <tr>
-    <td width="23"><strong>Instrum.</strong></td>
-    <td width="22"><strong>Padrao</strong></td>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
+    <td><strong>Instrum.</strong></td>
+    <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
@@ -130,22 +130,21 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
-    <td colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
-    <td colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Referencia</strong></td>
+    <td width="80%" colspan="7" style="text-align: center;"><strong>Descendente</strong></td>
   </tr>
-  
-  <tr>
-    <td width="53" rowspan="2" style="text-align: center;"><strong>%</strong></td>
-    <td width="39" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
-    <td width="57" rowspan="2" style="text-align: center;"><strong>Pressao aplicada ( kgf/cm2)</strong></td>
-    <td height="15" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
-    <td colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>%</strong></td>
+    <td width="10%" rowspan="2" style="text-align: center;"><strong>mA</strong></td>
+    <td width="20%" height="15px" rowspan="2" style="text-align: center;"><strong>Pressao aplicada (kgf/cm2)</strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 1 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 2 </strong></td>
+    <td width="20%" colspan="2" style="text-align: center;"><strong>Teste 3 </strong></td>
   </tr>
-  <tr>
-    <td width="23"><strong>Instrum.</strong></td>
-    <td width="22"><strong>Padrao</strong></td>
+  <tr style="border-collapse: collapse; border: 1.5px solid black">
+    <td><strong>Instrum.</strong></td>
+    <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>
     <td><strong>Padrao</strong></td>
     <td><strong>Instrum.</strong></td>

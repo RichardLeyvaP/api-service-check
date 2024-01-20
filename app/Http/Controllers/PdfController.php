@@ -16,9 +16,11 @@ class PdfController extends Controller
 
         try {
             $data = $request->validate([
+                //DADOS DO CLIENTE
                 'branchName' => 'max:100',
                 'cityState' => 'max:100',
                 'contact' => 'max:100',
+                //DADOS DO INSTRUMENTO
                 'numberRelatorie' => 'max:100',
                 'tag' => 'max:50',
                 'fabricante' => 'max:100',
@@ -29,10 +31,12 @@ class PdfController extends Controller
                 'fre' => 'max:50',
                 'dataCalibration' => 'date',
                 'dataNextCalibration' => 'date',
+                //AFERICÃO/CALIBRACÃO
                 'aplicada25' => 'numeric',
                 'aplicada50' => 'numeric',
                 'aplicada75' => 'numeric',
                 'aplicada100' => 'numeric',
+                //PATRÕES UTILIZADOS
                 'instrument_padrao' => 'max:100',
                 'certificado' => 'max:100',
                 'model' => 'max:50',

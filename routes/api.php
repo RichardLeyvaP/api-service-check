@@ -30,4 +30,5 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
 });
 
 Route::get('/pdf', [PdfController::class, 'pdf']);
+Route::get('/pdf-apk', [PdfController::class, 'pdfApk']);//ruta para la apk
 Route::get('/excel', [ExcelController::class, 'excel']);

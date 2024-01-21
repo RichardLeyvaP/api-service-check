@@ -27,7 +27,7 @@ class PdfController extends Controller
      *                 @OA\Property(
      *                      type="object",
      *                      @OA\Property(
-     *                          property="nombresaaa",
+     *                          property="nombres",
      *                          type="string"
      *                      ),
      *                      @OA\Property(

@@ -15,6 +15,54 @@ use Illuminate\Support\Facades\View;
 
 class PdfController extends Controller
 {
+     /**
+     * Generar Pdf
+     * @OA\get (
+     *     path="/api/pdf",
+     *     tags={"Cliente"},
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      type="object",
+     *                      @OA\Property(
+     *                          property="nombresaaa",
+     *                          type="string"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="apellidos",
+     *                          type="string"
+     *                      )
+     *                 ),
+     *                 example={
+     *                     "nombres":"Aderson Felix",
+     *                     "apellidos":"Jara Lazaro"
+     *                }
+     *             )
+     *         )
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="CREATED",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="nombres", type="string", example="Aderson Felix"),
+     *              @OA\Property(property="apellidos", type="string", example="Jara Lazaro"),
+     *              @OA\Property(property="created_at", type="string", example="2023-02-23T00:09:16.000000Z"),
+     *              @OA\Property(property="updated_at", type="string", example="2023-02-23T12:33:45.000000Z")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="UNPROCESSABLE CONTENT",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="The apellidos field is required."),
+     *              @OA\Property(property="errors", type="string", example="Objeto de errores"),
+     *          )
+     *      )
+     * )
+     */
     public function pdf(Request $request){
 
         try {

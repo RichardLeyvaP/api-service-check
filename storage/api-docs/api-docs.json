@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "SERVIE-CHECK Api Documentation",
+        "description": "SERVIE-CHECK Api Documentation",
+        "contact": {
+            "name": "Vijay Rana",
+            "email": "info@kodementor.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/api/pdf": {
+            "get": {
+                "tags": [
+                    "Cliente"
+                ],
+                "summary": "Generar Pdf",
+                "operationId": "66ea5a6a24362db701a84fdf778c880c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "nombresaaa": {
+                                                "type": "string"
+                                            },
+                                            "apellidos": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nombres": "Aderson Felix",
+                                    "apellidos": "Jara Lazaro"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "CREATED",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "nombres": {
+                                            "type": "string",
+                                            "example": "Aderson Felix"
+                                        },
+                                        "apellidos": {
+                                            "type": "string",
+                                            "example": "Jara Lazaro"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "UNPROCESSABLE CONTENT",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The apellidos field is required."
+                                        },
+                                        "errors": {
+                                            "type": "string",
+                                            "example": "Objeto de errores"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

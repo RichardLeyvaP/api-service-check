@@ -29,5 +29,5 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::post('change-password', [UserController::class, 'change_password']);
 });
 
-Route::post('/pdf', [PdfController::class, 'pdf']);
-Route::post('/excel', [ExcelController::class, 'excel']);
+Route::get('/pdf', [PdfController::class, 'pdf']);
+Route::get('/excel', [ExcelController::class, 'excel']);

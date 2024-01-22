@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,11 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
 });
 
 Route::get('/pdf', [PdfController::class, 'pdf']);
+Route::get('/pdf-prueba', [PdfController::class, 'pdf_prueba']);
 Route::get('/pdf-apk', [PdfController::class, 'pdfApk']);//ruta para la apk
 Route::get('/excel', [ExcelController::class, 'excel']);
+
+Route::get('/reporte', [ReporteController::class, 'index']);
+Route::get('/reporte-show', [ReporteController::class, 'show']);
+Route::post('/reporte', [ReporteController::class, 'store']);
+Route::post('/reporte-update', [ReporteController::class, 'update']);

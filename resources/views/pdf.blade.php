@@ -209,12 +209,12 @@
     <td colspan="9" style="text-align: center;">PADROES UTILIZADOS </td>
   </tr>
   <tr style="border-collapse: collapse; border: 1px solid">
-    <td colspan="5" style="border-collapse: collapse; border: 1px solid"><strong>Instrumento padrao:</strong> {{ $data['instrument_padrao'] }} </td>
+    <td colspan="5" style="border-collapse: collapse; border: 1px solid"><strong>Instrumento padrao:</strong> {{ $data['instrumentPadrao'] }} </td>
     <td colspan="4" style="border-collapse: collapse; border: 1px solid"><strong>Modelo:</strong> {{ $data['model'] }} </td>
   </tr>
   <tr style="border-collapse: collapse; border: 1px solid">
     <td colspan="4" style="border-collapse: collapse; border: 1px solid"><strong>Certificado: </strong>{{ $data['certificado'] }} </td>
-    <td colspan="5" style="border-collapse: collapse; border: 1px solid"><strong>Data afericao: </strong>{{ $data['date_aferica'] }} </td>
+    <td colspan="5" style="border-collapse: collapse; border: 1px solid"><strong>Data afericao: </strong>{{ $data['dateAferica'] }} </td>
   </tr>
   <tr style="border-collapse: collapse; border: 1px solid">
     <td colspan="5" style="border-collapse: collapse; border: 1px solid"><strong>Instrumento padrao:</strong> - </td>
@@ -236,7 +236,7 @@
     <td colspan="9" style="text-align: center;"><strong>Cervicos Executados </strong></td>
   </tr>
   <tr style="border-collapse: collapse; border: 1px solid">
-    <td colspan="9"><strong>{{ $data['service_execute'] }} </strong></td>
+    <td colspan="9"><strong>{{ $data['serviceExecute'] }} </strong></td>
   </tr>
   <tr style="border-collapse: collapse; border: 1px solid">
     <td colspan="9"><strong>ATR: {{ $data['art'] }} - ENEGENHEIRO : {{ $data['ingenier'] }} </strong></td>

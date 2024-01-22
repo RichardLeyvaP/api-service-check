@@ -57,4 +57,4 @@ Route::get('/reportes/{foldername}/{filename}', function ($foldername, $filename
     $response->header("Content-Type", $type);
 
     return $response;
-})->where(['folder' => 'reportes', 'filename' => '.*']);
+})->where(['folder' => 'pdfs', 'filename' => '.*']);

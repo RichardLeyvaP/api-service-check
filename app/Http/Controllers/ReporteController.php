@@ -152,16 +152,17 @@ class ReporteController extends Controller
             Log::info("Update PDF");
             
             $reporte = Reporte::find($data['id']); 
-            if($request->file('image_logo'))
+            if($request->hasFile('image_logo'))
             {
                 if($reporte->image_logo)
                 {
                     $destination=public_path("storage\\".$reporte->image_logo);
                     if (File::exists($destination)) {
                         File::delete($destination);
-                    }                    
-                    $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$request->file('image_logo')->getClientOriginalName(),'public');
-                } 
+                    } 
+                }                    
+                $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$request->file('image_logo')->getClientOriginalName(),'public');
+                
             }         
 
             $reporte->user_id = $data['user_id'];
@@ -203,6 +204,22 @@ class ReporteController extends Controller
 
     public function destroy(Request $request)
     {
-        //
+        try {
+            $data = $request->validate([
+                'id' => 'required'
+            ]); 
+            $reporte = Reporte::find($data['id']);
+            if ($reporte->image_logo) {
+                $destination=public_path("storage\\".$reporte->image_logo);
+                    if (File::exists($destination)) {
+                        File::delete($destination);
+                    }
+                }
+                Reporte::destroy($data['id']);
+            return response()->json(['msg' => 'Reporte eliminado correctamente'], 200);
+        } catch (\Throwable $th) {
+            Log::error($th);
+        return response()->json(['msg' =>$th->getMessage().'Error al eliminar el reporte'], 500);
+        }
     }
 }

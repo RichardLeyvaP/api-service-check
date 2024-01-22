@@ -5,6 +5,8 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +42,19 @@ Route::get('/reporte-show', [ReporteController::class, 'show']);
 Route::post('/reporte', [ReporteController::class, 'store']);
 Route::post('/reporte-update', [ReporteController::class, 'update']);
 Route::post('/reporte-delete', [ReporteController::class, 'destroy']);
+
+Route::get('/reportes/{foldername}/{filename}', function ($foldername, $filename) {
+    $path = storage_path("app/public/{$foldername}/{$filename}");
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = new Response($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+})->where(['folder' => 'reportes', 'filename' => '.*']);

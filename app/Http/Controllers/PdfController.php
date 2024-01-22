@@ -177,7 +177,8 @@ class PdfController extends Controller
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';
             Storage::put('public/pdfs/'.$filename, $pdf->output());
-            $path = storage_path("app/public/pdfs/".$filename);
+            return response()->json(['url' => "pdfs/".$filename], 200);
+            /*$path = storage_path("app/public/pdfs/".$filename);
 
                 if (!File::exists($path)) {
                     abort(404);
@@ -189,7 +190,7 @@ class PdfController extends Controller
                 $response = new Response($file, 200);
                 $response->header("Content-Type", $type);
 
-                return $response;
+                return $response;*/
             //$pdf->save(storage_path('app/public/pdf'.$filename));
             //$filename =$request->file('image_url')->storeAs('professionals',$request->file('image_url')->getClientOriginalName(),'public');
             //return $pdf->stream($filename, array('Attachment' => 0));

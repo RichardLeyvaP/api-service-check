@@ -39,3 +39,4 @@ Route::get('/reporte', [ReporteController::class, 'index']);
 Route::get('/reporte-show', [ReporteController::class, 'show']);
 Route::post('/reporte', [ReporteController::class, 'store']);
 Route::post('/reporte-update', [ReporteController::class, 'update']);
+Route::post('/reporte-delete', [ReporteController::class, 'destroy']);

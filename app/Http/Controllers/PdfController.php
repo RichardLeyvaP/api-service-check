@@ -112,7 +112,7 @@ class PdfController extends Controller
     public function pdfApk(Request $request){
 
         try {
-            $data = $request->validate([
+            /*$data = $request->validate([
                 //DADOS DO CLIENTE
                 'branchName' => 'max:100',
                 'cityState' => 'max:100',
@@ -134,17 +134,45 @@ class PdfController extends Controller
                 'aplicada75' => 'numeric',
                 'aplicada100' => 'numeric',
                 //PATRÕES UTILIZADOS
-                'instrument_padrao' => 'max:100',
+                'instrumentPadrao' => 'max:100',
                 'certificado' => 'max:100',
                 'model' => 'max:50',
-                'date_aferica' => 'date',
-                'service_execute' => 'max:100',
+                'dateAferica' => 'date',
+                'serviceExecute' => 'max:100',
                 'art' => 'max:100',
                 'ingenier' => 'max:100',
                 'tecnico' => 'max:100',
                 'data' => 'date'
 
-            ]);
+            ]);*/
+            $data = [
+                "branchName"=> "Produtos Boachá",
+                "cityState"=> "Ipaba/MG",
+                "numberRelatorie"=> "VSC-148-23-001",
+                "contact"=> "Vicente",
+                "tag"=> "PI-005",
+                "fabricante"=> "Casa Forte",
+                "direction"=> "Manômetro Analógico",
+                "functionProceso"=> "Pressão da Caldeira",
+                "faixa"=> "0 ~ 20,0 Kgf/cm²",
+                "medida"=> "Pressão",
+                "fre"=> "4349",
+                "dataCalibration"=> "2023-06-09",
+                "dataNextCalibration"=> "2023-06-09",
+                "aplicada25"=> "05.00",
+                "aplicada50"=> "10.00",
+                "aplicada75"=> "15.00",
+                "aplicada100"=> "20.00",
+                "instrumentPadrao"=> "NS839055",
+                "certificado"=> "PR2220043",
+                "dateAferica"=> "2023-12-11",
+                "model"=> "MN01",
+                "serviceExecute"=> "Calibracao",
+                "art"=> "MG20232130753",
+                "ingenier"=> "LORENA DOS REIS FREITAS",
+                "tecnico"=> "Cledir Fernandes Salvaterra",
+                "data"=> "2023-06-09"
+        ];
             Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';

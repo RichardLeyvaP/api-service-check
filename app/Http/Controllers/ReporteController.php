@@ -59,7 +59,7 @@ class ReporteController extends Controller
             
             $reporte = new Reporte(); 
             if ($request->hasFile('image_logo')) {
-                $reporte->data = $request->file('image_logo')->storeAs('logo',$request->file('image_logo')->getClientOriginalName(),'public');
+                $reporte->data = $request->file('image_logo')->storeAs('logos',$request->file('image_logo')->getClientOriginalName(),'public');
             }           
 
             $reporte->user_id = $data['user_id'];
@@ -160,7 +160,7 @@ class ReporteController extends Controller
                     if (File::exists($destination)) {
                         File::delete($destination);
                     }                    
-                    $reporte->image_logo = $request->file('image_logo')->storeAs('logo',$request->file('image_logo')->getClientOriginalName(),'public');
+                    $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$request->file('image_logo')->getClientOriginalName(),'public');
                 } 
             }         
 

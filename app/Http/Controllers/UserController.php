@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -81,6 +82,7 @@ class UserController extends Controller
             return response()->json(['msg' => $validator->errors()->all()
             ],400);
         }
+        return $codigo = Str::random(6);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

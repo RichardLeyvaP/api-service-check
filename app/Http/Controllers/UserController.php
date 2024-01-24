@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -27,13 +28,14 @@ class UserController extends Controller
             Log::info($user);
             if (isset($user->id) ) {
                 if(Hash::check($request->password, $user->password)) {
-                
+                        $user->updated_at = Carbon::now();
+                        $user->save();
                    return response()->json([
                         'id' => $user->id,
                         'name' => $user->name,
                         'email' => $user->email,       
                         'token' => $user->createToken('auth_token')->plainTextToken,
-                        'updated_at' => $user->updated_at
+                        'updated_at' => $user->updated_at->format('Y-m-d H:i:s')
                     ],200);
                 }else{
                     return response()->json([

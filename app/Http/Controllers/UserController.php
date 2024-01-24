@@ -32,7 +32,8 @@ class UserController extends Controller
                         'id' => $user->id,
                         'name' => $user->name,
                         'email' => $user->email,       
-                        'token' => $user->createToken('auth_token')->plainTextToken
+                        'token' => $user->createToken('auth_token')->plainTextToken,
+                        'updated_at' => $user->updated_at
                     ],200);
                 }else{
                     return response()->json([

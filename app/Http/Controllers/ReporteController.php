@@ -112,17 +112,33 @@ class ReporteController extends Controller
         }
     }
 
+    public function user_reports_cant(Request $request)
+    {
+        try {
+            $data = $request->validate([
+                'user_id' => 'required|numeric'
+            ]);
+            $reportes = Reporte::where('user_id', $data['user_id'])->get();
+            $result = [
+                'cant' => $reportes->count(),
+                'reports' => $reportes
+              ];
+            return response()->json(['data' => $result], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['msg' => "Error al mostrar los reportes del usuario"], 500);
+        }
+    }
+
     public function get_reporte(Request $request){
 
         try {
             $data = $request->validate([
-                'user_id' => 'required|numeric',
-                'data' => 'date'
+                'id' => 'required|numeric'
 
             ]);
-            return $reporte = Reporte::where('data', $data['data'])->where('user_id', $data['user_id']);
+            $reporte = Reporte::find($data['id']);
             Log::info("Generar PDF");
-            $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
+            $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $reporte]);
             $filename = 'reporte.pdf';
             //return $pdf->stream($filename, array('Attachment' => 0));
             return $pdf->stream($filename, array('Attachment' => 0));

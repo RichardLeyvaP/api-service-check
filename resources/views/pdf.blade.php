@@ -8,7 +8,7 @@
 <table width="100%" height="100%" style="border-collapse: collapse; border: 1.5px solid black">
 <tr height="10%" style="border-collapse: collapse; background-color: rgba(0, 0, 0, 0.1); border: 1.5px solid black">
     <td colspan="9" >
-    <p><img src="{{ storage_path('/img/prueba.png') }}" alt="Logo" style="float: right; background-size: cover; width: 50px; height: 50px; margin-top: 1px;"/></p>
+    <p><img src="{{ public_path('storage/'.$data['image_logo']) }}" alt="Logo" style="float: right; background-size: cover; width: 50px; height: 50px; margin-top: 1px;"/></p>
       
       <p style="size:24px;text-align: center;"><strong>RELATORIO DE AFERICAO E CALIBRACAO </strong></p>
     </td>

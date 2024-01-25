@@ -43,6 +43,7 @@ Route::post('/reporte', [ReporteController::class, 'store']);
 Route::post('/reporte-update', [ReporteController::class, 'update']);
 Route::post('/reporte-delete', [ReporteController::class, 'destroy']);
 Route::get('/reporte-get', [ReporteController::class, 'get_reporte']);
+Route::get('/user-reports-cant', [ReporteController::class, 'user_reports_cant']);
 
 Route::get('/reportes/{foldername}/{filename}', function ($foldername, $filename) {
     $path = storage_path("app/public/{$foldername}/{$filename}");

@@ -116,11 +116,11 @@ class ReporteController extends Controller
 
         try {
             $data = $request->validate([
-                'id' => 'required|numeric',
+                'user_id' => 'required|numeric',
                 'data' => 'date'
 
             ]);
-            return $reporte = Reporte::where('data', $data['data'])->find($data['id']);
+            return $reporte = Reporte::where('data', $data['data'])->where('user_id', $data['user_id']);
             Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';

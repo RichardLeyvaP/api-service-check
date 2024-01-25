@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reporte;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\Log;
@@ -111,6 +112,25 @@ class ReporteController extends Controller
         }
     }
 
+    public function get_reporte(Request $request){
+
+        try {
+            $data = $request->validate([
+                'id' => 'required|numeric',
+                'data' => 'date'
+
+            ]);
+            return $reporte = Reporte::where('data', $data['data'])->find($data['id']);
+            Log::info("Generar PDF");
+            $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
+            $filename = 'reporte.pdf';
+            //return $pdf->stream($filename, array('Attachment' => 0));
+            return $pdf->stream($filename, array('Attachment' => 0));
+        } catch (\Throwable $th) {
+            Log::info($th);
+        return response()->json(['msg' => $th->getMessage()], 500);
+        }
+    }
     public function update(Request $request)
     {
         try {

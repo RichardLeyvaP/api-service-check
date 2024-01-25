@@ -28,8 +28,8 @@ class UserController extends Controller
             Log::info($user);
             if (isset($user->id) ) {
                 if(Hash::check($request->password, $user->password)) {
-                        $user->updated_at = Carbon::now();
-                        $user->save();
+                        /*$user->updated_at = Carbon::now();
+                        $user->save();*/
                    return response()->json([
                         'id' => $user->id,
                         'name' => $user->name,
@@ -64,9 +64,10 @@ class UserController extends Controller
     }
 
     public function logout(){
-        try{            
-            auth()->user->updated_at = Carbon::now();
-            auth()->user->save();
+        try{ 
+            $user = User::find(auth()->user()->id);          
+            $user->updated_at = Carbon::now();
+            $user->save();
             auth()->user()->tokens()->delete();
         return response()->json([
             "msg" => "Session cerrada correctamente"

@@ -59,10 +59,7 @@ class ReporteController extends Controller
             Log::info("Generar PDF");
             
             $reporte = new Reporte(); 
-            if ($request->hasFile('image_logo')) {
-                $reporte->data = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
-            }           
-
+            
             $reporte->user_id = $data['user_id'];
             $reporte->branchName = $data['branchName'];
             $reporte->cityState = $data['cityState'];
@@ -90,7 +87,11 @@ class ReporteController extends Controller
             $reporte->ingenier = $data['ingenier'];
             $reporte->tecnico = $data['tecnico'];
             $reporte->data = $data['data'];
+            $reporte->save();
             
+            if ($request->hasFile('image_logo')) {
+                $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
+            }  
             $reporte->save();
 
             return response()->json(['msg' => 'Reporte guardado correctamente'], 200);

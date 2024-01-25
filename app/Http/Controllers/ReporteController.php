@@ -116,9 +116,17 @@ class ReporteController extends Controller
     {
         try {
             $data = $request->validate([
-                'user_id' => 'required|numeric'
+                'user_id' => 'required|numeric',
+                'start_date' => 'nullable|date',
+                'end_date' => 'nullable|date'
             ]);
+            if ($data['start_date'] && $data['end_date']) {
+                Log::info('no son nulas');
+                $reportes = Reporte::where('user_id', $data['user_id'])->whereBetween('data', [$data['start_date'], $data['end_date']])->get();
+            }
+            else{
             $reportes = Reporte::where('user_id', $data['user_id'])->get();
+            }
             $result = [
                 'cant' => $reportes->count(),
                 'reports' => $reportes

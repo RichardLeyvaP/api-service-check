@@ -64,8 +64,10 @@ class UserController extends Controller
     }
 
     public function logout(){
-        try{
-        auth()->user()->tokens()->delete();
+        try{            
+            auth()->user->updated_at = Carbon::now();
+            auth()->user->save();
+            auth()->user()->tokens()->delete();
         return response()->json([
             "msg" => "Session cerrada correctamente"
         ],200);

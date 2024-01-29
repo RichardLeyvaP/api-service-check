@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reporte;
+use App\Services\ReporteService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Arr;
 
 class ReporteController extends Controller
 {
+    protected $reporteService;
+
+    public function __construct(ReporteService $reporteService)
+    {
+        $this->reporteService = $reporteService;
+    }
+
     public function index()
     {
         try {
-            return response()->json(['reportes' => Reporte::with('user')->get()], 200);
+            return response()->json(['reportes' => $this->reporteService->getAllReportes()], 200);
         } catch (\Throwable $th) {
             return response()->json(['msg' => "Error al mostrar los reportes"], 500);
         }
@@ -58,7 +67,7 @@ class ReporteController extends Controller
             ]);
             Log::info("Generar PDF");
             
-            $reporte = new Reporte(); 
+            /*$reporte = new Reporte(); 
             
             $reporte->user_id = $data['user_id'];
             $reporte->branchName = $data['branchName'];
@@ -87,12 +96,14 @@ class ReporteController extends Controller
             $reporte->ingenier = $data['ingenier'];
             $reporte->tecnico = $data['tecnico'];
             $reporte->data = $data['data'];
-            $reporte->save();
-            
+            $reporte->save();*/
+            $reporte = $this->reporteService->createReporte($data);
+            Log::info($reporte);
             if ($request->hasFile('image_logo')) {
                 $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
+            
+                $this->reporteService->updateReporte($reporte->id, Arr::except($reporte, 'id'));
             }  
-            $reporte->save();
 
             return response()->json(['msg' => 'Reporte guardado correctamente'], 200);
         } catch (\Throwable $th) {
@@ -105,13 +116,26 @@ class ReporteController extends Controller
     {
         try {
             $data = $request->validate([
-                'user_id' => 'required|numeric'
+                'id' => 'required|numeric'
             ]);
-            return response()->json(['reportes' => Reporte::where('user_id', $data['user_id'])->get()], 200);
+            return response()->json(['reportes' => $this->reporteService->getReporteById($data['id'])], 200);
         } catch (\Throwable $th) {
             return response()->json(['msg' => "Error al mostrar los reportes del usuario"], 500);
         }
     }
+
+    public function showByUser(Request $request)
+    {
+        try {
+            $data = $request->validate([
+                'user_id' => 'required|numeric'
+            ]);
+            return response()->json(['reportes' => $this->reporteService->getByUser($data['user_id'])], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['msg' => "Error al mostrar los reportes del usuario"], 500);
+        }
+    }
+
 
     public function user_reports_cant(Request $request)
     {
@@ -196,7 +220,8 @@ class ReporteController extends Controller
             ]);
             Log::info("Update PDF");
             
-            $reporte = Reporte::find($data['id']); 
+            $reporte = $this->reporteService->getReporteById($data['id']);
+            //$reporte = Reporte::find($data['id']); 
             if($request->hasFile('image_logo'))
             {
                 if($reporte->image_logo)
@@ -206,11 +231,12 @@ class ReporteController extends Controller
                         File::delete($destination);
                     } 
                 }                    
-                $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
+                //$reporte->image_logo = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
+                $data['image_logo'] = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
                 
             }         
 
-            $reporte->user_id = $data['user_id'];
+            /*$reporte->user_id = $data['user_id'];
             $reporte->branchName = $data['branchName'];
             $reporte->cityState = $data['cityState'];
             $reporte->contact = $data['contact'];
@@ -238,8 +264,8 @@ class ReporteController extends Controller
             $reporte->tecnico = $data['tecnico'];
             $reporte->data = $data['data'];
             
-            $reporte->save();
-
+            $reporte->save();*/
+            $this->reporteService->updateReporte($data['id'], Arr::except($data, 'id'));
             return response()->json(['msg' => 'Reporte actualizado correctamente'], 200);
         } catch (\Throwable $th) {
             Log::error($th);
@@ -253,14 +279,14 @@ class ReporteController extends Controller
             $data = $request->validate([
                 'id' => 'required'
             ]); 
-            $reporte = Reporte::find($data['id']);
+            $reporte = $this->reporteService->getReporteById($data['id']);
             if ($reporte->image_logo) {
                 $destination=public_path("storage\\".$reporte->image_logo);
                     if (File::exists($destination)) {
                         File::delete($destination);
                     }
                 }
-                Reporte::destroy($data['id']);
+                $this->reporteService->deleteReporte($data['id']);
             return response()->json(['msg' => 'Reporte eliminado correctamente'], 200);
         } catch (\Throwable $th) {
             Log::error($th);

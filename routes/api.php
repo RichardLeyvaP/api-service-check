@@ -39,6 +39,7 @@ Route::get('/excel', [ExcelController::class, 'excel']);
 
 Route::get('/reporte', [ReporteController::class, 'index']);
 Route::get('/reporte-show', [ReporteController::class, 'show']);
+Route::get('/reporte-show-user', [ReporteController::class, 'showByUser']);
 Route::post('/reporte', [ReporteController::class, 'store']);
 Route::post('/reporte-update', [ReporteController::class, 'update']);
 Route::post('/reporte-delete', [ReporteController::class, 'destroy']);

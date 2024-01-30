@@ -88,7 +88,7 @@ class UserController extends Controller
             return response()->json(['msg' => $validator->errors()->all()
             ],400);
         }
-        return $codigo = Str::random(6);
+        $codigo = Str::random(6);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

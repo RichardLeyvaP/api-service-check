@@ -136,7 +136,6 @@ class ReporteController extends Controller
         }
     }
 
-
     public function user_reports_cant(Request $request)
     {
         try {
@@ -145,36 +144,27 @@ class ReporteController extends Controller
                 'start_date' => 'nullable|date',
                 'end_date' => 'nullable|date'
             ]);
-            if ($data['start_date'] && $data['end_date']) {
-                Log::info('no son nulas');
-                $reportes = Reporte::where('user_id', $data['user_id'])->whereBetween('data', [$data['start_date'], $data['end_date']])->get();
-            }
-            else{
-            $reportes = Reporte::where('user_id', $data['user_id'])->get();
-            }
-            $result = [
-                'cant' => $reportes->count(),
-                'reports' => $reportes
-              ];
+            $result = $this->reporteService->cantByUserReporte($data);
             return response()->json(['data' => $result], 200);
         } catch (\Throwable $th) {
             return response()->json(['msg' => "Error al mostrar los reportes del usuario"], 500);
         }
     }
 
-    public function get_reporte(Request $request){
+    public function reporte_get(Request $request){
 
         try {
             $data = $request->validate([
                 'id' => 'required|numeric'
 
             ]);
-            $reporte = Reporte::find($data['id']);
-            Log::info("Generar PDF");
+            //$reporte = Reporte::find($data['id']);
+            /*Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $reporte]);
             $filename = 'reporte.pdf';
             //return $pdf->stream($filename, array('Attachment' => 0));
-            return $pdf->stream($filename, array('Attachment' => 0));
+            return $pdf->stream($filename, array('Attachment' => 0));*/
+            return $this->reporteService->getReporte($data['id']);
         } catch (\Throwable $th) {
             Log::info($th);
         return response()->json(['msg' => $th->getMessage()], 500);

@@ -2,6 +2,7 @@
     namespace App\Repositories;
 
     use App\Models\Reporte;
+use Illuminate\Support\Facades\Log;
 
     class ReporteRepository{
 
@@ -37,6 +38,21 @@
     {
         $item = $this->find($id);
         $item->delete();
+    }
+
+    Public function cantByUser(array $data)
+    {
+        if ($data['start_date'] && $data['end_date']) {
+            Log::info('no son nulas');
+            $reportes = Reporte::where('user_id', $data['user_id'])->whereBetween('data', [$data['start_date'], $data['end_date']])->get();
+        }
+        else{
+        $reportes = Reporte::where('user_id', $data['user_id'])->get();
+        }
+        return $result = [
+            'cant' => $reportes->count(),
+            'reports' => $reportes
+          ];
     }
     }
 ?>

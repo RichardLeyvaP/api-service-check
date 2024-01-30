@@ -171,7 +171,8 @@ class PdfController extends Controller
                 "art"=> "MG20232130753",
                 "ingenier"=> "LORENA DOS REIS FREITAS",
                 "tecnico"=> "Cledir Fernandes Salvaterra",
-                "data"=> "2023-06-09"
+                "data"=> "2023-06-09",
+                "image_logo"=> " "
         ];
             Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);

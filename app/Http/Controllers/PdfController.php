@@ -178,31 +178,31 @@ class PdfController extends Controller
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';
             // Obtiene el contenido del PDF como una cadena
-    $pdfContent = $pdf->output();
+        $pdfContent = $pdf->output();
 
-    // Calcula el tamaño del PDF en kilobytes
-    $pdfSizeKB = strlen($pdfContent) / 1024;
-        Log::info($pdfSizeKB);
-    // Guarda el PDF en el almacenamiento
-    $filename = 'reporte.pdf';
-    Storage::put('public/pdfs/'.$filename, $pdfContent);
+        // Calcula el tamaño del PDF en kilobytes
+        $pdfSizeKB = strlen($pdfContent) / 1024;
+            Log::info($pdfSizeKB);
+        // Guarda el PDF en el almacenamiento
+        $filename = 'reporte.pdf';
+        Storage::put('public/pdfs/'.$filename, $pdfContent);
 
-    $path = storage_path("app/public/pdfs/".$filename);
+        $path = storage_path("app/public/pdfs/".$filename);
 
-    if (!File::exists($path)) {
-        abort(404);
-    }
+        if (!File::exists($path)) {
+            abort(404);
+        }
 
-    // Lee el archivo del almacenamiento
-    $file = File::get($path);
-    $type = File::mimeType($path);
+        // Lee el archivo del almacenamiento
+        $file = File::get($path);
+        $type = File::mimeType($path);
 
-    // Devuelve el PDF para descargar con el tamaño en el encabezado
-    $response = new Response($file, 200);
-    $response->header("Content-Type", $type);
-    $response->header("Content-Length", $pdfSizeKB);
+        // Devuelve el PDF para descargar con el tamaño en el encabezado
+        $response = new Response($file, 200);
+        $response->header("Content-Type", $type);
+        $response->header("Content-Length", $pdfSizeKB);
 
-    return $response;
+        return $response;
         } catch (\Throwable $th) {
             Log::info($th);
         return response()->json(['msg' => $th->getMessage()], 500);

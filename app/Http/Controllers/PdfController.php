@@ -112,7 +112,7 @@ class PdfController extends Controller
     public function pdfApk(Request $request){
 
         try {
-            /*$data = $request->validate([
+            $data = $request->validate([
                 //DADOS DO CLIENTE
                 'branchName' => 'max:100',
                 'cityState' => 'max:100',
@@ -144,8 +144,8 @@ class PdfController extends Controller
                 'tecnico' => 'max:100',
                 'data' => 'date'
 
-            ]);*/
-            $data = [
+            ]);
+            /*$data = [
                 "branchName"=> "Produtos Boachá",
                 "cityState"=> "Ipaba/MG",
                 "numberRelatorie"=> "VSC-148-23-001",
@@ -173,7 +173,7 @@ class PdfController extends Controller
                 "tecnico"=> "Cledir Fernandes Salvaterra",
                 "data"=> "2023-06-09",
                 "image_logo"=> ""
-        ];
+        ];*/
             Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';

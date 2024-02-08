@@ -8,7 +8,10 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Arr;
+use App\Mail\ContactMailable;
+use App\Services\SendEmailService;
 
 class ReporteController extends Controller
 {
@@ -27,6 +30,46 @@ class ReporteController extends Controller
             return response()->json(['msg' => "Error al mostrar los reportes"], 500);
         }
     }
+    
+    
+     public function send_email()
+    {
+        try {    
+                     
+            Log::info( "Entra a send_email");
+                  $client_email = 'richardleyvap1991@gmail.com';
+                  $client_name = 'Richard';
+                  $logoUrl = 'https://www.latino-news.com/wp-content/uploads/2019/01/tecnologia.png'; // Reemplaza esto con la lógica para obtener la URL dinámicamente
+        $template = 'send_mail_reservation';
+        $data_reservation = '12/10/2024';
+         $start_time = '12/10/2024';
+         $branch_name = 'Ipatinga';
+                            
+                            if($client_email){
+                                Log::info( "Entra  if($client_email){ ");
+                               // Envía el correo con los datos
+                               $mail = new ContactMailable($logoUrl, $client_name,$data_reservation,$template,$start_time,$branch_name);//falta mandar dinamicamente la sucursal
+                               Mail::to($client_email)
+                               ->send($mail->from('contact@risoftwar.com', 'RisoftwaR')
+                                           ->subject('Confirmación de Registro'));       
+                             
+                               Log::info( "Enviado send_email");
+           
+                            }
+                            else
+                            {
+                               Log::info( "ERROR:El Correo es null por eso no envio el correo"); 
+                            }
+                             //todo *********Cerrando lógica de envio de correo**********************
+            return response()->json(['Response' => "Email enviado correctamente"], 200);
+        } catch (\Throwable $th) {  
+            Log::error($th);
+            return response()->json(['msg' => "Error al enviar el Email"], 500);
+        }  
+   
+    }
+    
+    
 
     public function store(Request $request)
     {

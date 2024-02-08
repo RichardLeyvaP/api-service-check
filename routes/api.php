@@ -32,6 +32,11 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::post('change-password', [UserController::class, 'change_password']);
 });
 
+Route::get('/send_email2', function(){
+    return 'Esto para enviar email';
+});
+
+Route::get('/send_email', [ReporteController::class, 'send_email']);
 Route::get('/pdf', [PdfController::class, 'pdf']);
 Route::get('/pdf-prueba', [PdfController::class, 'pdf_prueba']);
 Route::get('/pdf-apk', [PdfController::class, 'pdfApk']);//ruta para la apk
@@ -45,6 +50,7 @@ Route::post('/reporte-update', [ReporteController::class, 'update']);
 Route::post('/reporte-delete', [ReporteController::class, 'destroy']);
 Route::get('/reporte-get', [ReporteController::class, 'reporte_get']);
 Route::get('/user-reports-cant', [ReporteController::class, 'user_reports_cant']);
+
 
 Route::get('/reportes/{foldername}/{filename}', function ($foldername, $filename) {
     $path = storage_path("app/public/{$foldername}/{$filename}");

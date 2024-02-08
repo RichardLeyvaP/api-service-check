@@ -99,6 +99,11 @@ class PdfController extends Controller
                 'data' => 'date'
 
             ]);
+            $filename = "image/default.png";
+            if ($request->hasFile('image_logo')) {
+                $filename = $request->file('image_image_logourl')->storeAs('logos',$data['branchName'].'-'.$data['data'].$request->file('image_logo')->extension(),'public');
+            }
+            $data['image_logo'] = $filename;
             Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';
@@ -174,6 +179,11 @@ class PdfController extends Controller
                 "data"=> "2023-06-09",
                 "image_logo"=> ""
         ];*/
+        $filename = "image/default.png";
+            if ($request->hasFile('image_logo')) {
+                $filename = $request->file('image_image_logourl')->storeAs('logos',$data['branchName'].'-'.$data['data'].$request->file('image_logo')->extension(),'public');
+            }
+            $data['image_logo'] = $filename;
             Log::info("Generar PDF");
             $pdf = Pdf::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'isPhpEnabled' => true, 'chroot' => storage_path()])->setPaper('a4', 'patriot')->loadView('pdf', ['data' => $data]);
             $filename = 'reporte.pdf';
@@ -201,7 +211,10 @@ class PdfController extends Controller
         $response = new Response($file, 200);
         $response->header("Content-Type", $type);
         $response->header("Content-Length", $pdfSizeKB);
-
+        $destination=public_path("storage\\".$filename);
+            if (File::exists($destination)) {
+                File::delete($destination);
+                }
         return $response;
         } catch (\Throwable $th) {
             Log::info($th);

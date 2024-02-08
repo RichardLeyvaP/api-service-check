@@ -142,11 +142,11 @@ class ReporteController extends Controller
             $reporte->save();*/
             $reporte = $this->reporteService->createReporte($data);
             Log::info($reporte);
-            if ($request->hasFile('image_logo')) {
-                $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
+            //if ($request->hasFile('image_logo')) {
+               // $reporte->image_logo = $request->file('image_logo')->storeAs('logos',$reporte->id.'.'.$request->file('image_logo')->extension(),'public');
             
-                $this->reporteService->updateReporte($reporte->id, Arr::except($reporte, 'id'));
-            }  
+                //$this->reporteService->updateReporte($reporte->id, Arr::except($reporte, 'id'));
+            //}  
 
             return response()->json(['msg' => 'Reporte guardado correctamente'], 200);
         } catch (\Throwable $th) {

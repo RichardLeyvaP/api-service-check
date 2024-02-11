@@ -27,6 +27,11 @@ class UserController extends Controller
             $user = User::where('email',$request->email)->orWhere('name', $request->email)->first();
             Log::info($user);
             if (isset($user->id) ) {
+                if (!$user->confirmed) {
+                    return response()->json([
+                        "msg" => "Debe confirmar su cuenta de correo"
+                     ], 404);
+                }
                 if(Hash::check($request->password, $user->password)) {
                         /*$user->updated_at = Carbon::now();
                         $user->save();*/
@@ -52,15 +57,16 @@ class UserController extends Controller
         }
     }
 
-    public function userProfile(){
+    public function userProfile()
+    {
         try{
         return response()->json([
             "msg" => "Acerca del perfil de usuario",
             "data" => auth()->user()
         ]);
-    }catch(\Throwable $th){
+        }catch(\Throwable $th){
         return response()->json(['msg' => 'Error al ver los datos del usuario'], 500);
-    }
+        }
     }
 
     public function logout(){
@@ -92,9 +98,10 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'confirmation_code' => $codigo
         ]);
-
+        //Aqui mandar el correo con el codigo y la ruta que que va a confirmar el correo, la ruta debe pasar como parametro el codigo
         return response()->json(['msg' => "Client registrado correctamente!!!",
             'user' => $user
         ],201);
@@ -103,7 +110,8 @@ class UserController extends Controller
         }
     }
 
-    public function change_password(Request $request){
+    public function change_password(Request $request)
+    {
         try{
         $validator = Validator::make($request->all(), [
             'id' => 'required|numeric',
@@ -126,6 +134,31 @@ class UserController extends Controller
         }
         }catch(\Throwable $th){
         return response()->json(['msg' => 'Error al modificar la password'], 500);
+        }
+    }
+
+    public function verify(Request $request)
+    {
+        try{
+        $validator = Validator::make($request->all(), [
+            'confirmation_code' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['msg' => $validator->errors()->all()
+            ],400);
+        }
+        $user = User::where('confirmation_code', $request->confirmation_code)->first();
+        if (!$user) {
+            return response()->json(['msg' => 'El correo no ha sido confirmado'], 500);  
+        }
+        else {
+            $user->confirmed = true;
+            $user->confirmation_code = null;
+            $user->save();
+            return response()->json(['msg' => 'Has confirmado tu correo correctamente'], 200);
+        }
+        }catch(\Throwable $th){
+        return response()->json(['msg' => 'Error al verificar el correo'], 500);
         }
     }
 }

@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 Route::post('/register', [UserController::class, 'register']);
+Route::get('/email-verify', [UserController::class, 'verify']);
 Route::post('/login', [UserController::class, 'login']);
 
 Route::group( ['middleware' => ["auth:sanctum"]], function(){

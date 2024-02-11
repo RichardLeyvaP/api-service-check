@@ -33,7 +33,7 @@ class ReporteController extends Controller
     
     
      public function send_email()
-    {
+     {
         try {    
                      
             Log::info( "Entra a send_email");
@@ -67,7 +67,7 @@ class ReporteController extends Controller
             return response()->json(['msg' => "Error al enviar el Email"], 500);
         }  
    
-    }
+     }
     
     
 
@@ -194,7 +194,8 @@ class ReporteController extends Controller
         }
     }
 
-    public function reporte_get(Request $request){
+    public function reporte_get(Request $request)
+    {
 
         try {
             $data = $request->validate([
